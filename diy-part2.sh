@@ -19,6 +19,8 @@
 # Modify hostname
 #sed -i 's/OpenWrt/P3TERX-Router/g' package/base-files/files/bin/config_generate
 # Убираем kernel-драйверы QModem — они конфликтуют с ядром OpenWrt 25.12
-rm -rf feeds/qmodem/driver/quectel_QMI_WWAN
-rm -rf feeds/qmodem/driver/fibocom_QMI_WWAN
-rm -rf feeds/qmodem/driver/simcom_QMI_WWAN
+# Удаляем только конфликтующие патчи ядра
+# но оставляем сами пакеты драйверов
+rm -rf feeds/qmodem/driver/quectel_QMI_WWAN/patches
+rm -rf feeds/qmodem/driver/fibocom_QMI_WWAN/patches
+rm -rf feeds/qmodem/driver/simcom_QMI_WWAN/patches
